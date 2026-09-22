@@ -164,3 +164,25 @@ const dolgozo1: dolgozoSzemely = {
 };
 console.log(dolgozo1);
 */
+
+
+//09.15. - Functions
+function osszead(a: number, b: number): number {
+  return a + b;
+}
+
+function kiir(uzenet: string): void {
+  console.log(uzenet);
+}
+
+function ujFelhasznalo(neve: string, eletkor: number): void {
+  console.log({neve, eletkor});
+}
+
+function udvozol(neve:string="Vendég", megszolitas?:string): string{
+  if (megszolitas) {
+    return `Szia ${megszolitas} ${neve}!`;
+  }
+  return `Szia ${neve}!`;
+}
+console.log(udvozol("János", "Dr.")); //udvozol(undefined, "Dr.")
