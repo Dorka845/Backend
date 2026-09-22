@@ -59,3 +59,14 @@ async function main(): Promise<void> {
 }
 
 main();
+
+
+
+const getValami = <T>(data:T) : Promise<T> => {
+    return new Promise((resolve, reject) => {
+        resolve(data);
+  });
+};
+
+getValami<number>(42).then((num) => console.log(num.toFixed(2)));
+getValami<string>("hali").then((text) => console.log(text.length));
