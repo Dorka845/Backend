@@ -12,6 +12,8 @@
   "description": "",
   "type": "module",
   "dependencies": {
+    "body-parser": "^2.3.0",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
     "tslint": "^5.20.1",
     "typescript": "^7.0.2"
@@ -22,6 +24,7 @@
   ],
   "typings": "./lib/index.d.ts",
   "devDependencies": {
+    "@types/body-parser": "^1.19.6",
     "@types/express": "^5.0.6",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
