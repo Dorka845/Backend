@@ -8,9 +8,13 @@ async function getProducts() {
 
 async function createTable() {
     const products = await getProducts();
+
     const oldTable = document.querySelector("table"); if (oldTable) { oldTable.remove(); }
+
     const table = document.createElement('table');
+
     const header = document.createElement('tr');
+
     header.innerHTML = `
         <th>ID</th>
         <th>Név</th>
@@ -21,9 +25,12 @@ async function createTable() {
         <th>Értékelés</th>
         <th>Aktív</th>
     `;
+
     table.appendChild(header);
+
     products.forEach(product => {
         const row = document.createElement("tr");
+
         row.innerHTML = `
             <td>${product.id}</td>
             <td>${product.name}</td>
@@ -34,13 +41,18 @@ async function createTable() {
             <td>${product.rating}</td>
             <td>${product.active}</td>
         `;
+
         table.appendChild(row);
     });
+
     document.body.appendChild(table);
 }
 
+
+
 function createForm() {
     const urlap = document.createElement("form");
+    
     urlap.innerHTML = `
         <h2>Új termék hozzáadása</h2>
     
@@ -106,9 +118,12 @@ function createForm() {
     
         <button type="submit">Termék hozzáadása</button>
     `;
+    
     urlap.addEventListener("submit", async (event) => {
         event.preventDefault();
+    
         const formData = new FormData(urlap);
+    
         const newProduct = {
             name: formData.get("name"),
             category: formData.get("category"),
@@ -121,6 +136,7 @@ function createForm() {
             description: formData.get("description"),
             image: formData.get("image")
         };
+    
         const response = await fetch("http://localhost:3000/products", {
             method: "POST",
             headers: {
@@ -128,6 +144,7 @@ function createForm() {
             },
             body: JSON.stringify(newProduct)
         });
+    
         if (response.ok) {
             alert("A termék sikeresen hozzáadva!");
         
@@ -138,6 +155,7 @@ function createForm() {
             alert("Hiba történt a termék hozzáadásakor!");
         }
     });
+
     document.body.appendChild(urlap);
 }
 

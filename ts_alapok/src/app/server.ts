@@ -1,32 +1,19 @@
 import app from "./app.ts"
-import type { Response, Request } from "express"
-import data from "../app/data/data.ts"
 import dotenv from "dotenv"
+import data from "../app/data/data.ts"
+import type { Response, Request } from "express"
 dotenv.config()
 
-const PORT=process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
 // innentől megjelennek a http metódusok (get, post, put, delete, patch)
 
-app.post("/", (_req:Request, res:Response) =>{
-    res.json({
-        message: "hello, ez egy POST kérés" // postmanen keresztul elerheto pl
-    })
-})
 // fetch("http://localhost:3000",{method:"POST"}).then(response => response.json().then(data => console.log(data)));
 // consoleban lyen bonyolultan lehetne kiirni a post kerest ( fel kell oldani a jsont )
 // egy vegponton csak 1 post keres lehet
 
-app.post("/a", (req:Request, res:Response) =>{
-    console.log(req.body)
-    res.send(req.body)
-})
 //fetch("http://localhost:3000/a",{method:"POST"}).then(response =>response.text().then(data => console.log(data)));
 // ezt igy kell feloldani (sima szoveget)
-
-app.get("/products", (_req:Request, res:Response) => {
-    res.json(data)
-})
 
 app.post("/products", (req:Request, res:Response) => {
     const newProduct = {
@@ -45,9 +32,7 @@ app.post("/products", (req:Request, res:Response) => {
         description: req.body.description,
         image: req.body.image
     }
-
     data.push(newProduct)
-
     res.status(201).json(newProduct)
 })
 
@@ -56,7 +41,6 @@ app.get("/", (_req:Request, res:Response) =>{
 })
 
 app.listen(PORT, () => {
-    console.log(`Fut a szerver a ${PORT}-on!`) // ez a terminal consoleone
+    console.log(`Fut a szerver a ${PORT}-es PORT-on.`) // ez pedig a terminal consoleone
 })
-
 // localhost:3000en elérhető böngészőből is

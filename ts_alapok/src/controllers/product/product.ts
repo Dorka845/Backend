@@ -1,24 +1,8 @@
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  brand: string;
-  price: number;
-  currency: 'HUF' | string; // Ha a HUF fix, érdemes lehet string literált használni
-  stock: number;
-  rating: number;
-  active: boolean;
-  description: string;
-  image: string;
-}
-
-//osztaly letrehozasa az interfacebol implementalva, inicializacional a konstruktort adatokkal feltudjuk tolteni
-
-class Products implements Product{
+export interface IProduct {
     id: number;
     name: string;
     category: string;
-    brand: string;
+    brand: string; 
     price: number;
     currency: string;
     stock: number;
@@ -26,7 +10,24 @@ class Products implements Product{
     active: boolean;
     description: string;
     image: string;
- 
+}
+
+// Olyan osztály, amely ebbol az interfacebol van implementalva
+// amikor inicializalva van, a konstruktorat fel tudjuk tolteni adatokkal
+
+export class Product implements IProduct{
+    id: number;
+    name: string;
+    category: string;
+    brand: string; 
+    price: number;
+    currency: string;
+    stock: number;
+    rating: number;
+    active: boolean;
+    description: string;
+    image: string;
+
     constructor(id: number,
         name: string,
         category: string,
