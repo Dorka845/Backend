@@ -1,0 +1,27 @@
+config
+
+npm init typescript
+(tslint torolheto)
+
+
+tsconfig.json:
+"target": "esnext",
+"module": "nodenext",
+"moduleResolution": "nodenext",
+downlevelIteration, lib torolheto
+ezt hozza kell adni:
+"allowImportingTsExtensions": true,
+"noEmit": true,
+
+
+package.json:
+"type": "module", at kell irni
+"scripts": {
+    "dev": "tsx watch src/server.ts"
+},
+dependenciesbol kitorolheto a tslint
+
+
+terminalba:
+npm i express
+npm i -D typescript tsx @types/express @types/node
