@@ -42,7 +42,7 @@ app.delete("/data/:id", (req,res)=>{
     return res.status(404).json({message: "animal not found"})
 
   data.splice(animal, 1);
-  return res.status(200).send();
+  return res.status(204).send();
 })
 
 //POST
