@@ -2,6 +2,7 @@ import data from "./data/data.ts";
 import express from "express"
 
 const app = express()
+app.use(express.json())
 
 const PORT = 3000;
 app.listen(PORT, ()=>{
@@ -41,3 +42,30 @@ app.delete("/data/:id", (req, res) => {
     return res.status(204).send()
 })
 
+app.post("/data", (req, res) => {
+    const ujAllat = {
+        id: Math.max(0, ...data.map(a => a.id)) + 1,
+        ...req.body
+    }
+
+    data.push(ujAllat)
+    return res.status(201).json(ujAllat)
+})
+
+app.put("/data/:id", (req, res) => {
+    const id = Number(req.params.id)
+
+    if (!Number.isInteger(id)) {
+        return res.status(400).json({ message: "id legyen szam" })
+    }
+
+    const animal = data.find(a => a.id === id)
+
+    if (!animal) {
+        return res.status(404).json({ message: "animal not found" })
+    }
+
+    Object.assign(animal, req.body, { id })
+
+    return res.status(200).json(animal)
+})
