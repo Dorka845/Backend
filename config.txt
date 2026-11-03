@@ -25,3 +25,6 @@ dependenciesbol kitorolheto a tslint
 terminalba:
 npm i express
 npm i -D typescript tsx @types/express @types/node
+
+Adatbazis:
+docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=jelszo -p 3306:3306 -d mysql:latest
