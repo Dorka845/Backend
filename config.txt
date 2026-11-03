@@ -25,6 +25,18 @@ dependenciesbol kitorolheto a tslint
 terminalba:
 npm i express
 npm i -D typescript tsx @types/express @types/node
+npm i cors
+npm i -D @types/cors
+npm i mysql2
+npm i -D @types/mysql2
+
+Error:
+npm audit fix --force
+
+Update:
+npm install -g npm@latest
 
 Adatbazis:
 docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=jelszo -p 3306:3306 -d mysql:latest
+
+
