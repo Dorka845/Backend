@@ -17,11 +17,11 @@ app.get("/data", (_req, res)=>{
 
 app.get("/data/:id", (req, res)=>{
   const id = Number(req.params.id)
-  if(!Number.isInteger)
+  if(!Number.isInteger(id))
     return res.status(400).json({message: "id legyen szam"})
 
   const animal = data.find((animal)=>{
-    animal.id === id
+    return animal.id === id
   })
   if(!animal)
     return res.status(404).json({message: "animal not found"})
@@ -32,13 +32,13 @@ app.get("/data/:id", (req, res)=>{
 //DELETE
 app.delete("/data/:id", (req,res)=>{
   const id = Number(req.params.id)
-  if(!Number.isInteger)
+  if(!Number.isInteger(id))
     return res.status(400).json({message: "id legyen szam"})
 
   const animal = data.findIndex((animal)=>{
-    animal.id === id
+    return animal.id === id
   })
-  if(!animal)
+  if(animal === -1)
     return res.status(404).json({message: "animal not found"})
 
   data.splice(animal, 1);
@@ -52,18 +52,18 @@ app.post("/data", (req,res)=>{
     ...req.body
   }
 
-  data.push();
+  data.push(ujAllat);
   return res.status(201).json(ujAllat);
 })
 
 //PUT
 app.put("/data/:id", (req, res)=>{
   const id = Number(req.params.id)
-  if(!Number.isInteger)
+  if(!Number.isInteger(id))
     return res.status(400).json({message: "id legyen szam"})
 
   const animal = data.find((animal)=>{
-    animal.id === id
+    return animal.id === id
   })
   if(!animal)
     return res.status(404).json({message: "animal not found"})
