@@ -1,0 +1,44 @@
+{
+  "name": "13c_1csop_backend_2026_27",
+  "version": "1.0.0",
+  "description": "A **HTTP (HyperText Transfer Protocol)** egy alkalmazási rétegbeli protokoll, amelyet elsősorban webes kliensek és szerverek közötti kommunikációra használunk.",
+  "homepage": "https://github.com/szilasii/13c_1csop_Backend_2026_27#readme",
+  "bugs": {
+    "url": "https://github.com/szilasii/13c_1csop_Backend_2026_27/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szilasii/13c_1csop_Backend_2026_27.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec node ./src/app/server.ts",
+    "dev-ts": "nodemon --exec npx tsx ./src/app/server.ts"
+  },
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.6"
+  },
+  "files": [
+    "./bin/*",
+    "./lib/*"
+  ],
+  "typings": "./lib/index.d.ts",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.4",
+    "nodemon": "^1.0.2",
+    "tsc": "^2.0.4",
+    "tslint": "^3.1.1",
+    "typescript": "^7.0.2"
+  }
+}

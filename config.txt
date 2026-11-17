@@ -29,6 +29,7 @@ npm i cors
 npm i -D @types/cors
 npm i mysql2
 npm i -D @types/mysql2
+npm install dotenv
 
 Error:
 npm audit fix --force
